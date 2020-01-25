@@ -1,0 +1,7 @@
+﻿@model Sol_Demo.ViewModels.UsersViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@Html.Raw($"{Model.Users.FirstName} {Model.Users.LastName}")</h1>

@@ -1,0 +1,16 @@
+﻿@using Sol_Demo.Components
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model Sol_Demo.ViewModels.UsersViewModel
+
+
+<h1>Index</h1>
+
+@(await Html.RenderComponentAsync<UserList>(RenderMode.ServerPrerendered, new { UsersCollection = Model.UsersList }))
+
+
+@*Not Working At this Movement. Bug is Here*@
+@*<UserList UsersCollection="@Model.UsersList"/>*@
+
