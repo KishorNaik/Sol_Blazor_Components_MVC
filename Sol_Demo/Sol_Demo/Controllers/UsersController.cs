@@ -10,20 +10,22 @@ using Sol_Demo.ViewModels;
 namespace Sol_Demo.Controllers
 {
     // https://chrissainty.com/using-blazor-components-in-an-existing-mvc-application/
+    // https://visualstudiomagazine.com/articles/2020/01/23/sharing-blazor.aspx
+    // https://medium.com/@waelkdouh/integrating-blazor-components-into-existing-asp-net-core-mvc-applications-b1a2aec4ac1f
+    // https://stackoverflow.com/questions/59136221/blazor-in-mvc-component-gets-rendered-but-onclick-not-working-problem-with-c
+    // https://stackoverflow.com/questions/56241125/adding-server-side-blazor-to-an-existing-mvc-core-app
 
     public class UsersController : Controller
     {
-
         public UsersController()
         {
             this.UserVM = new UsersViewModel();
         }
 
-
         [BindProperty]
         public UsersViewModel UserVM { get; set; }
 
-        [BindProperty(SupportsGet =true)]
+        [BindProperty(SupportsGet = true)]
         public int Id { get; set; }
 
         private void AddListOfUsers()
@@ -53,7 +55,6 @@ namespace Sol_Demo.Controllers
 
         public IActionResult Index()
         {
-
             AddListOfUsers();
 
             SetTempData();
@@ -61,7 +62,7 @@ namespace Sol_Demo.Controllers
             return View(UserVM);
         }
 
-        [HttpGet("Users/Details/{Id}", Name ="UserDetails")]
+        [HttpGet("Users/Details/{Id}", Name = "UserDetails")]
         public IActionResult Details()
         {
             UserVM.Users =

@@ -1,0 +1,16 @@
+﻿@inject NavigationManager navigationManger
+
+<h3>ClickDemoComponent</h3>
+
+<button @onclick="OnSubmit" class="btn btn-danger">Submit</button>
+
+@code {
+
+    private void OnSubmit()
+    {
+        int Id = 1;
+        string url = $"Users/Details/{Id}";
+        navigationManger.NavigateTo(url, true); // Navigate To Controller and Action
+    }
+
+}

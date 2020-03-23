@@ -1,0 +1,12 @@
+﻿@using Sol_Demo.Components
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+@(await Html.RenderComponentAsync<ClickDemoComponent>(RenderMode.ServerPrerendered))
+
+<component type="typeof(ClickDemoComponent)"
+           render-mode="ServerPrerendered"></component>

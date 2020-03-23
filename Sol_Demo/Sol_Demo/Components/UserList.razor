@@ -1,39 +1,38 @@
-﻿@using Microsoft.AspNetCore.Components
-@using Sol_Demo.Models
+﻿@using Sol_Demo.Models
 
 @page "/userlist"
 
-    <table class="table">
-        <thead>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in UsersCollection)
+        {
             <tr>
-                <th>
-                    First Name
-                </th>
-                <th>
-                    Last Name
-                </th>
-                <th></th>
+                <td>
+                    @item.FirstName
+                </td>
+                <td>
+                    @item.LastName
+                </td>
+                <td>
+                    <a href="Users/Details/@item.Id" class="btn btn-dark">Details</a>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in UsersCollection)
-            {
-                <tr>
-                    <td>
-                        @item.FirstName
-                    </td>
-                    <td>
-                        @item.LastName
-                    </td>
-                    <td>
-                        <a href="Users/Details/@item.Id" class="btn btn-dark">Details</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>
 
-    
+<Sol_Demo.Components.ClickDemoComponent></Sol_Demo.Components.ClickDemoComponent>
 
 @code {
 
