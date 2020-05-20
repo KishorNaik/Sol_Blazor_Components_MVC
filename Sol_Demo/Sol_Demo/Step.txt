@@ -1,0 +1,36 @@
+﻿Step 1:
+In Startup file, Add the following service on ConfigureService method.
+ services.AddServerSideBlazor();
+
+Step 2:
+In Startup file, Add the following middleware on Configure method
+app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Users}/{action=Index}/{id?}");
+                endpoints.MapBlazorHub();
+            });
+
+Step 3:
+Add following blazor script tag on _Layout.cshtml file.
+
+<script src="_framework/blazor.server.js"></script>
+
+Step 4:
+Create _Import.razor file in root folder & add the following namespace in the file.
+@using System.Net.Http
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.JSInterop
+
+Step 5:
+Create a Components folder, Add the component.
+Check Components folder.
+
+Step 6:
+Invoke Components in view by using Components tag helper.
+<component type="typeof(UserList)" render-mode="ServerPrerendered" param-UsersCollection="@Model.UsersList"></component>

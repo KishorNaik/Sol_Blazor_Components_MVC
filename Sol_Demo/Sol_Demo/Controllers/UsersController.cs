@@ -14,6 +14,7 @@ namespace Sol_Demo.Controllers
     // https://medium.com/@waelkdouh/integrating-blazor-components-into-existing-asp-net-core-mvc-applications-b1a2aec4ac1f
     // https://stackoverflow.com/questions/59136221/blazor-in-mvc-component-gets-rendered-but-onclick-not-working-problem-with-c
     // https://stackoverflow.com/questions/56241125/adding-server-side-blazor-to-an-existing-mvc-core-app
+    // https://medium.com/@geobourno/bringing-blazor-in-an-existing-net-core-mvc-project-d605d9f9ebe8
 
     public class UsersController : Controller
     {
